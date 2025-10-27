@@ -1,0 +1,9 @@
+ POST /auth/register 400 35.538 ms PostmanRuntime/7.49.0 Mon, 27 Oct 2025 08:49:22 GMT - error-message: Password should atleast be 8 charcters with one uppercase and lowercase letter, number and special charcter
+ POST /auth/register 400 3.004 ms PostmanRuntime/7.49.0 Mon, 27 Oct 2025 08:49:32 GMT - error-message: Password should atleast be 8 charcters with one uppercase and lowercase letter, number and special charcter
+ POST /auth/register 400 2.622 ms PostmanRuntime/7.49.0 Mon, 27 Oct 2025 08:49:39 GMT - error-message: Password should atleast be 8 charcters with one uppercase and lowercase letter, number and special charcter
+ POST /auth/register 201 109.568 ms PostmanRuntime/7.49.0 Mon, 27 Oct 2025 08:50:12 GMT
+ POST /auth/register 400 21.551 ms PostmanRuntime/7.49.0 Mon, 27 Oct 2025 08:54:43 GMT - error-message: Email is already taken
+ POST /auth/register 201 77.767 ms PostmanRuntime/7.49.0 Mon, 27 Oct 2025 09:20:08 GMT
+ POST /auth/register 500 80.698 ms PostmanRuntime/7.49.0 Mon, 27 Oct 2025 09:20:56 GMT - error-message: Cannot read properties of undefined (reading 'ACCESS')
+ POST /auth/register 400 26.966 ms PostmanRuntime/7.49.0 Mon, 27 Oct 2025 09:21:39 GMT - error-message: Email is already taken
+ POST /auth/register 201 47.466 ms PostmanRuntime/7.49.0 Mon, 27 Oct 2025 09:21:51 GMT

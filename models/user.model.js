@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const validator = require('validator');
+const mongoose = require("mongoose");
+const validator = require("validator");
 const userSchema = mongoose.Schema(
   {
     name: {
@@ -15,7 +15,7 @@ const userSchema = mongoose.Schema(
       lowercase: true,
       validate(value) {
         if (!validator.isEmail(value)) {
-          throw new Error('Invalid email');
+          throw new Error("Invalid email");
         }
       },
     },
@@ -27,7 +27,7 @@ const userSchema = mongoose.Schema(
       validate(value) {
         if (!validator.isStrongPassword(value)) {
           throw new Error(
-            'Password should contain atleast one uppercase and lowercase letter, number and special character'
+            "Password should contain atleast one uppercase and lowercase letter, number and special character"
           );
         }
       },
@@ -42,6 +42,6 @@ userSchema.statics.isEmailTaken = async function (email) {
   const user = await this.findOne({ email });
   return !!user;
 };
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model("User", userSchema);
 
 module.exports = User;
