@@ -7,3 +7,9 @@
  POST /auth/register 500 80.698 ms PostmanRuntime/7.49.0 Mon, 27 Oct 2025 09:20:56 GMT - error-message: Cannot read properties of undefined (reading 'ACCESS')
  POST /auth/register 400 26.966 ms PostmanRuntime/7.49.0 Mon, 27 Oct 2025 09:21:39 GMT - error-message: Email is already taken
  POST /auth/register 201 47.466 ms PostmanRuntime/7.49.0 Mon, 27 Oct 2025 09:21:51 GMT
+ POST /auth/login 400 8.991 ms PostmanRuntime/7.49.0 Mon, 27 Oct 2025 09:55:04 GMT - error-message: "body.email" is required
+ POST /auth/login 401 95.890 ms PostmanRuntime/7.49.0 Mon, 27 Oct 2025 09:55:16 GMT - error-message: Incorrect email or password
+ POST /auth/register 201 125.238 ms PostmanRuntime/7.49.0 Mon, 27 Oct 2025 09:55:43 GMT
+ POST /auth/login 200 50.215 ms PostmanRuntime/7.49.0 Mon, 27 Oct 2025 09:56:21 GMT
+ POST /auth/login 500 79.633 ms PostmanRuntime/7.49.0 Mon, 27 Oct 2025 10:11:49 GMT - error-message: generateAuthToken is not defined
+ POST /auth/login 500 47.502 ms PostmanRuntime/7.49.0 Mon, 27 Oct 2025 10:12:33 GMT - error-message: generateAuthToken is not defined

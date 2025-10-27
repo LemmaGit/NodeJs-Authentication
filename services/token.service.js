@@ -3,19 +3,49 @@ const dayjs = require("dayjs");
 const config = require("./../config/config");
 const { tokenTypes } = require("./../config/tokens");
 
-const generateAuthToken = (userId) => {
+const generateToken = (userId, expires, type, secret = config.jwt.secret) => {
   const payload = {
     sub: userId,
     iat: dayjs().unix(),
-    exp: dayjs()
-      .add(config.jwt.JWT_ACCESS_EXPIRATION_MINUTES, "minutes")
-      .unix(),
-    type: tokenTypes.ACCESS,
+    exp: expires.unix(),
+    type,
   };
 
-  return jwt.sign(payload, config.jwt.secret);
+  return jwt.sign(payload, secret);
 };
 
+const generateAuthTokens = (userId) => {
+  const accessTokenExpires = dayjs().add(
+    config.jwt.accessExpirationMinutes,
+    "minutes"
+  );
+  const accessToken = generateToken(
+    userId,
+    accessTokenExpires,
+    tokenTypes.ACCESS
+  );
+  const refreshTokenExpires = dayjs().add(
+    config.jwt.refreshExpirationDays,
+    "days"
+  );
+  const refreshToken = generateToken(
+    userId,
+    refreshTokenExpires,
+    tokenTypes.REFRESH
+  );
+
+  return {
+    access: {
+      token: accessToken,
+      expires: accessTokenExpires.toDate(),
+    },
+    refresh: {
+      token: refreshToken,
+      expires: refreshTokenExpires.toDate(),
+    },
+  };
+};
 module.exports = {
-  generateAuthToken,
+  generateToken,
+  generateAuthTokens,
 };

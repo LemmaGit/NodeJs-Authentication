@@ -3,6 +3,7 @@
     "start": "nodemon index.js"
   },
   "dependencies": {
+    "@meanie/mongoose-to-json": "^2.6.0",
     "bcryptjs": "^3.0.2",
     "dayjs": "^1.11.18",
     "dotenv": "^16.0.3",

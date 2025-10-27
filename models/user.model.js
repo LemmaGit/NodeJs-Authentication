@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const toJson = require("@meanie/mongoose-to-json");
 const validator = require("validator");
 const bcrypt = require("bcryptjs");
 const userSchema = mongoose.Schema(
@@ -25,6 +26,7 @@ const userSchema = mongoose.Schema(
       required: true,
       trim: true,
       minlength: 8,
+      private: true,
       validate(value) {
         if (!validator.isStrongPassword(value)) {
           throw new Error(
@@ -53,6 +55,7 @@ userSchema.pre("save", async function (next) {
     user.password = await bcrypt.hash(user.password, 8);
   next();
 });
+userSchema.plugin(toJson);
 const User = mongoose.model("User", userSchema);
 
 module.exports = User;
