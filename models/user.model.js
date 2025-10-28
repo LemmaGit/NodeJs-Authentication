@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const toJson = require("@meanie/mongoose-to-json");
 const validator = require("validator");
 const bcrypt = require("bcryptjs");
+
 const userSchema = mongoose.Schema(
   {
     name: {

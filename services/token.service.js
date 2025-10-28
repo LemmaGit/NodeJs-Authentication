@@ -2,6 +2,29 @@ const jwt = require("jsonwebtoken");
 const dayjs = require("dayjs");
 const config = require("./../config/config");
 const { tokenTypes } = require("./../config/tokens");
+const Token = require("./../models/token.model");
+
+const saveToken = async (token, userId, expires, type, blacklisted = false) => {
+  return await Token.create({
+    token,
+    user: userId,
+    expires: expires.toDate(),
+    type,
+    blacklisted,
+  });
+};
+
+const verifyToken = async (token, type) => {
+  const payload = jwt.verify(token, config.jwt.secret);
+  const tokenDoc = await Token.findOne({
+    token,
+    user: payload.sub,
+    type,
+    blacklisted: false,
+  });
+  if (!tokenDoc) throw new Error("Token not found");
+  return tokenDoc;
+};
 
 const generateToken = (userId, expires, type, secret = config.jwt.secret) => {
   const payload = {
@@ -14,7 +37,7 @@ const generateToken = (userId, expires, type, secret = config.jwt.secret) => {
   return jwt.sign(payload, secret);
 };
 
-const generateAuthTokens = (userId) => {
+const generateAuthTokens = async (userId) => {
   const accessTokenExpires = dayjs().add(
     config.jwt.accessExpirationMinutes,
     "minutes"
@@ -33,7 +56,12 @@ const generateAuthTokens = (userId) => {
     refreshTokenExpires,
     tokenTypes.REFRESH
   );
-
+  await saveToken(
+    refreshToken,
+    userId,
+    refreshTokenExpires,
+    tokenTypes.REFRESH
+  );
   return {
     access: {
       token: accessToken,
@@ -45,7 +73,10 @@ const generateAuthTokens = (userId) => {
     },
   };
 };
+
 module.exports = {
   generateToken,
   generateAuthTokens,
+  saveToken,
+  verifyToken,
 };
