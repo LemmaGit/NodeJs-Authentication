@@ -36,3 +36,9 @@
  POST /auth/refresh-token 401 44.038 ms PostmanRuntime/7.49.0 Tue, 28 Oct 2025 06:00:56 GMT - error-message: Please authenticate
  POST /auth/login 200 107.128 ms PostmanRuntime/7.49.0 Tue, 28 Oct 2025 06:23:04 GMT
  POST /auth/refresh-token 200 121.408 ms PostmanRuntime/7.49.0 Tue, 28 Oct 2025 06:27:45 GMT
+ GET /blogs 200 74.681 ms PostmanRuntime/7.49.0 Tue, 28 Oct 2025 07:10:04 GMT
+ GET /blogs 200 15.134 ms PostmanRuntime/7.49.0 Tue, 28 Oct 2025 07:11:17 GMT
+ GET /blogs 401 6.226 ms PostmanRuntime/7.49.0 Tue, 28 Oct 2025 07:12:00 GMT - error-message: Please authenticate
+ POST /auth/login 401 53.464 ms PostmanRuntime/7.49.0 Tue, 28 Oct 2025 07:23:22 GMT - error-message: Please authenticate
+ POST /auth/login 401 16.839 ms PostmanRuntime/7.49.0 Tue, 28 Oct 2025 07:23:54 GMT - error-message: Please authenticate
+ POST /auth/login 401 18.806 ms PostmanRuntime/7.49.0 Tue, 28 Oct 2025 07:24:33 GMT - error-message: Please authenticate
