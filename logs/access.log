@@ -42,3 +42,6 @@
  POST /auth/login 401 53.464 ms PostmanRuntime/7.49.0 Tue, 28 Oct 2025 07:23:22 GMT - error-message: Please authenticate
  POST /auth/login 401 16.839 ms PostmanRuntime/7.49.0 Tue, 28 Oct 2025 07:23:54 GMT - error-message: Please authenticate
  POST /auth/login 401 18.806 ms PostmanRuntime/7.49.0 Tue, 28 Oct 2025 07:24:33 GMT - error-message: Please authenticate
+ GET /blogs 401 6.820 ms PostmanRuntime/7.49.0 Tue, 28 Oct 2025 07:26:44 GMT - error-message: Please authenticate
+ POST /auth/login 200 106.378 ms PostmanRuntime/7.49.0 Tue, 28 Oct 2025 07:26:48 GMT
+ GET /blogs 200 21.595 ms PostmanRuntime/7.49.0 Tue, 28 Oct 2025 07:27:28 GMT
